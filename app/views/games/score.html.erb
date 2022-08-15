@@ -1,6 +1,20 @@
 <div class="container">
   <h1>Your score</h1>
 
+  <% if @response %>
+    <p><b>Congratulations!</b><% params[:word] %> is a valid English word!</p>
+  <% else %>
+    <p>Sorry but <b><% params[:word] %></b> does not seem to be a valid English word.</p>
+  <% end %>
+
+
+  <span>Sorry but <b><% params[:word] %></b> can´t be built out of </span>
+  <ul style="list-style: none;">
+  <% @letters.each do |letter| %>
+    <li style="display: inline;"><%= letter %></li>
+  <% end %>
+  </ul>
+
 
 
   <%= link_to "Play again", new_path, :style=>'text-decoration: none;' %>
