@@ -5,7 +5,7 @@ class GamesController < ApplicationController
 
   def new
     @letters = []
-    @letters << ("A".."Z").to_a.sample(10)
+    @letters << ("A".."Z").to_a.sample until @letters.size == 10
   end
 
   def score
